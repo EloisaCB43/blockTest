@@ -1,0 +1,1 @@
+1. Use en el JSON "type": "module" para poder hacer import de express.
