@@ -33,7 +33,7 @@ app.use(express.json());
 app.listen(3000, () => console.log("Server running in port 3000"));
 
 const usersRoutes = require("./src/routes/usersRoutes");
-const productsRoutes = require("./src/routes/productsRoutes");
+const moviesRoutes = require("./src/routes/moviesRoutes");
 
 app.use("/user", usersRoutes);
-app.use("/product", productsRoutes);
+app.use("/movie", moviesRoutes);

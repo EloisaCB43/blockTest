@@ -71,7 +71,6 @@ const controller = {
   },
 
   login: (req, res) => {
-    
     if (!validateEmail(req.body.email)) {
       return res.status(400).json({
         message: "Please enter a valid email",
@@ -100,18 +99,19 @@ const controller = {
           if (result) {
             // jwt.sign(payload, secretOrPrivateKey, [options, callback])
             // Paylod -- what should be pass to the client email and id_user,  contains the claims
-            const tokenGenerate = jwt.sign({
-              email: user[0].email,
-              id: user[0]._id,
-            },
-            process.env.ACCESS_TOKEN_SECRET,
-            {
-              expiresIn: "20m"
-            }
-             );
+            const tokenGenerate = jwt.sign(
+              {
+                email: user[0].email,
+                id: user[0]._id,
+              },
+              process.env.ACCESS_TOKEN_SECRET,
+              {
+                expiresIn: "20m",
+              }
+            );
             return res.status(200).json({
               message: "authentication Successful",
-              token : tokenGenerate
+              token: tokenGenerate,
             });
           } else {
             return res.status(401).json({
@@ -129,8 +129,9 @@ const controller = {
   },
 
   delete: (req, res) => {
-    User.remove({ _id: req.params.id })
-      .then((res) => {
+    User.deleteOne({ _id: req.params.id })
+
+      .then((result) => {
         res.status(200).json({
           message: "The user has been successfully deleted",
         });
