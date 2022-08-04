@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { validateEmail, validatePassword } = require("../../utils/regex");
 
+
 const userSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   email: {

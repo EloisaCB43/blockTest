@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+var jwt = require("jsonwebtoken");
 
 const User = require("../api/models/usersModel");
 const { validateEmail, validatePassword } = require("../utils/regex");
@@ -97,8 +98,20 @@ const controller = {
             });
           }
           if (result) {
+            // jwt.sign(payload, secretOrPrivateKey, [options, callback])
+            // Paylod -- what should be pass to the client email and id_user,  contains the claims
+            const tokenGenerate = jwt.sign({
+              email: user[0].email,
+              id: user[0]._id,
+            },
+            process.env.ACCESS_TOKEN_SECRET,
+            {
+              expiresIn: "20m"
+            }
+             );
             return res.status(200).json({
               message: "authentication Successful",
+              token : tokenGenerate
             });
           } else {
             return res.status(401).json({
