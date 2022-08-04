@@ -1,18 +1,21 @@
 const express = require("express");
 const router = express.Router();
 
-
 const controller = require("../controllers/moviesController.js");
 
 // GET http://localhost:3000/movie
-router.get("/",controller.getAll)
+router.get("/", controller.getAll);
 
 // POST http://localhost:3000/movie
-router.post("/",controller.create)
+router.post("/", controller.create);
 
-// router.get("/:id",controller.getOne)
+// GET http://localhost:3000/movie/:id
+router.get("/:id", controller.getOne);
 
-// router.put("/:id",controller.update)
-// router.delete("/:id", controller.delete)
+// PATCH http://localhost:3000/movie/:id
+router.patch("/:id", controller.update);
+
+// DELETE http:/localhost:3000/movie/:id
+router.delete("/:id", controller.delete)
 
 module.exports = router;
