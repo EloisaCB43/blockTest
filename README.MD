@@ -7,6 +7,7 @@
 5. I use require('crypto').randomBytes(64).toString('hex') to generate in the terminal the secret and refresh token key.
 6. Installed npm i dotenv to load environment variables from a .env file into process.env. for the JWT.
 7. in the .env I prepare the variables I was going to use to make the authentication with JWS.
+8. I used mongoose-paginate-v2 to create the pagination
 
 ## Routes for User signup, login and delete.
 
@@ -45,3 +46,7 @@
 - GET http://localhost:3000/movie/:id -- brings the detail of one movie, I have to get movies first to get the id
 - PATCH http://localhost:3000/movie/:id -- updates a movies field, I have to login first to get the token and have access
 - DELETE http:/localhost:3000/movie/:id -- deletes a movie, I have to get movies first to get the \_id
+
+###### pagination
+
+GET http://localhost:3000/movie?limit=4&page=2
