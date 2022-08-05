@@ -62,6 +62,7 @@ const controller = {
         });
       });
   },
+
   update: async (req, res) => {
     const updateField = req.body;
     Movie.findOneAndUpdate({ _id: req.params.id }, { $set: updateField })

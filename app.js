@@ -25,12 +25,15 @@ try {
 
 // App instance
 const app = express();
+app.set("puerto", API_PORT);
 
 // important built-in middleware function in Express. It parses incoming requests with urlencoded payloads and is based on body-parser.
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.listen(API_PORT, () => console.log("Server running in port 3000"));
+app.listen(app.get("puerto"), () =>
+  console.log(`Server running in port ${app.get("puerto")}`)
+);
 
 const usersRoutes = require("./src/routes/usersRoutes");
 const moviesRoutes = require("./src/routes/moviesRoutes");

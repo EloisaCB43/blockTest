@@ -7,7 +7,7 @@
 5. I use require('crypto').randomBytes(64).toString('hex') to generate in the terminal the secret and refresh token key.
 6. Installed npm i dotenv to load environment variables from a .env file into process.env. for the JWT.
 7. in the .env I prepare the variables I was going to use to make the authentication with JWS.
-8. I used mongoose-paginate-v2 to create the pagination
+8. I used mongoose-paginate-v2 to create the pagination.
 
 ## Routes for User signup, login and delete.
 
@@ -24,9 +24,9 @@
 
 ###### the routes for users
 
-- POST http://localhost:3000/user/signup -- to signup/create a new user
-- POST http://localhost:3000/user/login -- to login the user created
-- DELETE http://localhost:3000/user/Id -- to delete a user, I used it mostly to delete test that were duplicated
+- POST http://localhost:3000/user/signup -- to signup/create a new user.
+- POST http://localhost:3000/user/login -- to login the user created.
+- DELETE http://localhost:3000/user/Id -- to delete a user, I used it mostly to delete test that were duplicated.
 
 ## Routes for movie create, getAll, getOne, update, delete
 
@@ -41,12 +41,12 @@
 
 ###### the routes for movies
 
-- POST http://localhost:3000/movie -- creates a new movie, I have to login first to get the token and have access
-- GET http://localhost:3000/movie -- count and gets all movies in database
-- GET http://localhost:3000/movie/:id -- brings the detail of one movie, I have to get movies first to get the id
-- PATCH http://localhost:3000/movie/:id -- updates a movies field, I have to login first to get the token and have access
-- DELETE http:/localhost:3000/movie/:id -- deletes a movie, I have to get movies first to get the \_id
+- POST http://localhost:3000/movie -- creates a new movie, I have to login first to get the token and have access.
+- GET http://localhost:3000/movie -- count and gets all movies in database.
+- GET http://localhost:3000/movie/:id -- brings the detail of one movie, I have to get movies first to get the id.
+- PATCH http://localhost:3000/movie/:id -- updates a movies field, I have to login first to get the token and have access.
+- DELETE http:/localhost:3000/movie/:id -- deletes a movie, I have to get movies first to get the \_id.
 
 ###### pagination
 
-GET http://localhost:3000/movie?limit=4&page=2
+GET http://localhost:3000/movie?limit=4&page=2.
