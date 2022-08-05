@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-const Movie = require("../api/models/MoviesModel");
-const authToken = require("../middleware/auth");
+const Movie = require("../api/models/moviesModel");
 
 const controller = {
   create: async (req, res) => {
