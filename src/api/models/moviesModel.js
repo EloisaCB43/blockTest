@@ -28,6 +28,6 @@ const movieSchema = mongoose.Schema({
 
 movieSchema.plugin(mongoosePaginate);
 
-const movieModel = mongoose.model("Movie", movieSchema);
+const movieModel = mongoose.model("Movie", movieSchema, "Movie");
 
 module.exports = movieModel;
