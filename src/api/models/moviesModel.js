@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate-v2");
 
 const movieSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -23,8 +24,9 @@ const movieSchema = mongoose.Schema({
   deletedAt: {
     type: Date,
   },
- 
 });
+
+movieSchema.plugin(mongoosePaginate);
 
 const movieModel = mongoose.model("Movie", movieSchema);
 

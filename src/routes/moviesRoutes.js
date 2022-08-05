@@ -17,6 +17,6 @@ router.get("/:id", controller.getOne);
 router.patch("/:id", authToken, controller.update);
 
 // DELETE http:/localhost:3000/movie/:id
-router.delete("/:id", controller.delete);
+router.delete("/:id", authToken, controller.delete);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const Movie = require("../api/models/MoviesModel");
+const authToken = require("../middleware/auth");
 
 const controller = {
   create: async (req, res) => {
@@ -28,7 +29,11 @@ const controller = {
       });
   },
   getAll: async (req, res) => {
-    Movie.find({})
+    // 10 by default, parseInt if a string is passed as limit instead of a number. brings the default amount of movies
+    const limitPage = parseInt(req.query.limit, 10) || 10;
+    //  page 1 by default, parseInt if a string is passed in the query as page instead of a number. it shows the deafult page.
+    const pageChange = parseInt(req.query.page, 10) || 1;
+    Movie.paginate({}, { limit: limitPage, page: pageChange })
       .then((result) => {
         return res.status(200).json({
           message: "GET request to all getAllMovies",
