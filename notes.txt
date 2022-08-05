@@ -1,3 +1,4 @@
 1. npx kill-port 3000
 2. I use require('crypto').randomBytes(64).toString('hex') to generate in the terminal the secret and refresh token key
 3. Installed npm i dotenv to load environment variables from a .env file into process.env. for the JWT
+- I had to use split(" ")[1] in the middleware to remove the string Bearer at the start of the token when I used the authorization.
