@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const { MONGO_URI, API_PORT } = process.env;
+const { MONGO_URI, PORT } = process.env;
 // db connection
 try {
   mongoose
@@ -25,7 +25,7 @@ try {
 
 // App instance
 const app = express();
-app.set("puerto", API_PORT);
+app.set("puerto", PORT);
 
 // important built-in middleware function in Express. It parses incoming requests with urlencoded payloads and is based on body-parser.
 app.use(express.urlencoded({ extended: false }));
