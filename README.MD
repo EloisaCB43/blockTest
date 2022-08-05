@@ -29,10 +29,10 @@
 
 ## Routes for movie create, getAll, getOne, update, delete
 
-- To autheticate the routes for movies I used a middleware called auth.js that I just placed in file moviesRoutes.js in the followinf routes :
+- To autheticate the routes for movies I used a middleware called auth.js that I just placed in file moviesRoutes.js in the following routes :
 
   - POST http://localhost:3000/movie
-  - PATCH http://localhost:3000/movie/:id
+  - PATCH http://localhost:3000/movie/:ids
 
 - To authenticate the token of login, with the token authentication (to create and update a movie), please Login first with:
   POST http://localhost:3000/user/login this will generate a token, copy paste that token and go to the Authorization menu of postman, select "Bearer token" and paste the token.
@@ -40,8 +40,8 @@
 
 ###### the routes for movies
 
-- POST http://localhost:3000/movie -- creates a new movie
+- POST http://localhost:3000/movie -- creates a new movie, I have to login first to get the token and have access
 - GET http://localhost:3000/movie -- count and gets all movies in database
-- GET http://localhost:3000/movie/:id -- brings the detail of one movie, I have to login first to get the \_id in the terminal and the use it in the route.
-- PATCH http://localhost:3000/movie/:id -- updates a movies field, I have to login first to get the \_id in the terminal and the use it in the route
-- DELETE http:/localhost:3000/movie/:id -- deletes a movie, I have to login first to get the \_id in the terminal and the use it in the route
+- GET http://localhost:3000/movie/:id -- brings the detail of one movie, I have to get movies first to get the id
+- PATCH http://localhost:3000/movie/:id -- updates a movies field, I have to login first to get the token and have access
+- DELETE http:/localhost:3000/movie/:id -- deletes a movie, I have to get movies first to get the \_id

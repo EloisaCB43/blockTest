@@ -16,9 +16,9 @@ const controller = {
     createMovie
       .save()
       .then((result) => {
-        console.log(result);
         res.status(201).json({
           message: "The Movie is created",
+          result: result,
         });
       })
       .catch((err) => {
@@ -58,13 +58,12 @@ const controller = {
       });
   },
   update: async (req, res) => {
-    console.log("ahhh", req.body);
     const updateField = req.body;
     Movie.findOneAndUpdate({ _id: req.params.id }, { $set: updateField })
       .then((result) => {
         res.status(200).json({
           message: "The movie has been updated",
-          result: result,
+          result: updateField,
         });
       })
       .catch((err) => {
