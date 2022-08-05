@@ -104,10 +104,11 @@ const controller = {
                 email: user[0].email,
                 id: user[0]._id,
               },
-              process.env.ACCESS_TOKEN_SECRET,
+              process.env.REFRESH_TOKEN_SECRET,
               {
                 expiresIn: "20m",
-              }
+              },
+              process.env.ACCESS_TOKEN_SECRET
             );
             return res.status(200).json({
               message: "authentication Successful",

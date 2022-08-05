@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 
+
 const Movie = require("../api/models/MoviesModel");
 
 const controller = {
   create: async (req, res) => {
-    console.log(req.body);
     const createMovie = new Movie({
       _id: new mongoose.Types.ObjectId(),
       name: req.body.name,
       description: req.body.description,
       category: req.body.category,
-      autor: req.body.autor,
+      author: req.body.autor,
       price: req.body.price,
     });
 
@@ -61,17 +61,16 @@ const controller = {
   update: async (req, res) => {
     const updateField = req.body;
     Movie.findOneAndUpdate({ _id: req.params.id }, { $set: updateField })
-    .then((result) => {
+      .then((result) => {
         res.status(200).json({
           message: "The movie has been updated",
         });
-      }
-    )
-    .catch((err) => {
-      res.status(500).json({
-        error: err,
+      })
+      .catch((err) => {
+        res.status(500).json({
+          error: err,
+        });
       });
-    });
   },
   delete: (req, res) => {
     Movie.deleteOne({ _id: req.params.id })

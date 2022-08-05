@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const movieSchema = mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   name: {
     type: String,
     required: true,
@@ -9,7 +10,7 @@ const movieSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  autor: {
+  author: {
     type: String,
   },
   description: {
@@ -22,6 +23,7 @@ const movieSchema = mongoose.Schema({
   deletedAt: {
     type: Date,
   },
+ 
 });
 
 const movieModel = mongoose.model("Movie", movieSchema);

@@ -9,7 +9,7 @@ router.post("/signup", controller.signup);
 // POST http://localhost:3000/user/login
 router.post("/login", controller.login);
 
-// DELETE http://localhost:3000/user/Id   organizarrrrr no da
+// DELETE http://localhost:3000/user/Id
 router.delete("/:id", controller.delete);
 
 module.exports = router;
