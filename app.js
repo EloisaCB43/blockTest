@@ -1,10 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const { MONGO_URI, API_PORT, ACCESS_TOKEN_SECRET } = process.env;
+const { MONGO_URI, API_PORT } = process.env;
 // db connection
 try {
   mongoose
@@ -30,7 +29,6 @@ const app = express();
 // important built-in middleware function in Express. It parses incoming requests with urlencoded payloads and is based on body-parser.
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cookieParser());
 
 app.listen(API_PORT, () => console.log("Server running in port 3000"));
 

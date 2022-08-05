@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 // call next() if the auth is successful
 
 function authToken(req, res, next) {
-  console.log("headerssssss", req.headers, process.env.ACCESS_TOKEN_SECRET);
   try {
     const decoded = jwt.verify(
       req.headers.authorization.split(" ")[1],
