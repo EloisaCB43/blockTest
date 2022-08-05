@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const Movie = require("../api/models/MoviesModel");
 
 const controller = {
@@ -59,11 +58,13 @@ const controller = {
       });
   },
   update: async (req, res) => {
+    console.log("ahhh", req.body);
     const updateField = req.body;
     Movie.findOneAndUpdate({ _id: req.params.id }, { $set: updateField })
       .then((result) => {
         res.status(200).json({
           message: "The movie has been updated",
+          result: result,
         });
       })
       .catch((err) => {

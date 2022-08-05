@@ -36,6 +36,7 @@
 
 - To authenticate the token of login, with the token authentication (to create and update a movie), please Login first with:
   POST http://localhost:3000/user/login this will generate a token, copy paste that token and go to the Authorization menu of postman, select "Bearer token" and paste the token.
+- If I don't login first and do POST http://localhost:3000/movie and PATCH http://localhost:3000/movie/:id, the message "You don't have permission" will appear
 
 ###### the routes for movies
 
