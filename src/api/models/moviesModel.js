@@ -31,3 +31,5 @@ movieSchema.plugin(mongoosePaginate);
 const movieModel = mongoose.model("Movie", movieSchema, "Movie");
 
 module.exports = movieModel;
+
+// adding a comment
