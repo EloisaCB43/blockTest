@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const Movie = require("../api/models/moviesModel");
+const Product = require("../api/models/productsModel");
 
 const controller = {
   create: async (req, res) => {
     console.log(req.file);
-    const createMovie = new Movie({
+    const createProduct = new Product({
       _id: new mongoose.Types.ObjectId(),
       name: req.body.name,
       description: req.body.description,
@@ -14,11 +14,11 @@ const controller = {
       price: req.body.price,
     });
 
-    createMovie
+    createProduct
       .save()
       .then((result) => {
         res.status(201).json({
-          message: "The Movie is created",
+          message: "The Product is created",
           result: result,
         });
       })
@@ -29,14 +29,14 @@ const controller = {
       });
   },
   getAll: async (req, res) => {
-    // 10 by default, parseInt if a string is passed as limit instead of a number. brings the default amount of movies
+    // 10 by default, parseInt if a string is passed as limit instead of a number. brings the default amount of products
     const limitPage = parseInt(req.query.limit, 10) || 10;
     //  page 1 by default, parseInt if a string is passed in the query as page instead of a number. it shows the deafult page.
     const pageChange = parseInt(req.query.page, 10) || 1;
-    Movie.paginate({}, { limit: limitPage, page: pageChange })
+    Product.paginate({}, { limit: limitPage, page: pageChange })
       .then((result) => {
         return res.status(200).json({
-          message: "GET request to all getAllMovies",
+          message: "GET request to all getAllProducts",
           dataCount: result.length,
           result: result,
         });
@@ -49,10 +49,10 @@ const controller = {
   },
 
   getOne: async (req, res) => {
-    Movie.find({ _id: req.params.id })
+    Product.find({ _id: req.params.id })
       .then((result) => {
         return res.status(200).json({
-          message: "GET request to One Movie",
+          message: "GET request to One Product",
           result: result,
         });
       })
@@ -65,10 +65,10 @@ const controller = {
 
   update: async (req, res) => {
     const updateField = req.body;
-    Movie.findOneAndUpdate({ _id: req.params.id }, { $set: updateField })
+    Product.findOneAndUpdate({ _id: req.params.id }, { $set: updateField })
       .then((result) => {
         res.status(200).json({
-          message: "The movie has been updated",
+          message: "The product has been updated",
           result: updateField,
         });
       })
@@ -79,11 +79,11 @@ const controller = {
       });
   },
   delete: (req, res) => {
-    Movie.deleteOne({ _id: req.params.id })
+    Product.deleteOne({ _id: req.params.id })
 
       .then((result) => {
         res.status(200).json({
-          message: "The movie has been successfully deleted",
+          message: "The product has been successfully deleted",
         });
       })
       .catch((err) => {

@@ -36,7 +36,7 @@ app.listen(app.get("puerto"), () =>
 );
 
 const usersRoutes = require("./src/routes/usersRoutes");
-const moviesRoutes = require("./src/routes/moviesRoutes");
+const productsRoutes = require("./src/routes/productsRoutes");
 
 app.use("/user", usersRoutes);
-app.use("/movie", moviesRoutes);
+app.use("/product", productsRoutes);

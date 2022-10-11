@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate-v2");
 
-const movieSchema = mongoose.Schema({
+const productSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   name: {
     type: String,
@@ -27,8 +27,8 @@ const movieSchema = mongoose.Schema({
   },
 });
 
-movieSchema.plugin(mongoosePaginate);
+productSchema.plugin(mongoosePaginate);
 
-const movieModel = mongoose.model("Movie", movieSchema, "Movie");
+const productModel = mongoose.model("Product", productSchema, "Product");
 
-module.exports = movieModel;
+module.exports = productModel;

@@ -25,7 +25,7 @@ const upload = multer({
   },
   fileFilter: fileFilter,
 });
-const controller = require("../controllers/moviesController.js");
+const controller = require("../controllers/productsController.js");
 
 // GET http://localhost:3000/movie
 router.get("/", controller.getAll);
