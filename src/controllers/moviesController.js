@@ -4,12 +4,13 @@ const Movie = require("../api/models/moviesModel");
 
 const controller = {
   create: async (req, res) => {
+    console.log(req.file);
     const createMovie = new Movie({
       _id: new mongoose.Types.ObjectId(),
       name: req.body.name,
       description: req.body.description,
       category: req.body.category,
-      author: req.body.autor,
+      productImage: req.file.path,
       price: req.body.price,
     });
 

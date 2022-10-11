@@ -11,8 +11,9 @@ const movieSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  author: {
+  productImage: {
     type: String,
+    required: true,
   },
   description: {
     type: String,
@@ -31,5 +32,3 @@ movieSchema.plugin(mongoosePaginate);
 const movieModel = mongoose.model("Movie", movieSchema, "Movie");
 
 module.exports = movieModel;
-
-// adding a comment
